@@ -21,8 +21,8 @@ trait COL_RRR {
 trait traitCOL_Restriction extends COL_RRR {
   val partyRequired: Option[Boolean]
   val RestriccionDominio: Boolean
-  val RestriccionUso: Boolean
   val RestriccionOcupacion: Boolean
+  val RestriccionUso: Boolean
 }
 
 case class
@@ -55,10 +55,10 @@ COL_Restriction(
                  override val shareCheck: Option[Boolean],
                  override val vigencia: Option[ISO8601_ISO14825_Type],
                  partyRequired: Option[Boolean],
-                 tipo: COL_RestrictionType,
                  RestriccionDominio: Boolean,
+                 RestriccionOcupacion: Boolean,
                  RestriccionUso: Boolean,
-                 RestriccionOcupacion: Boolean
+                 tipo: COL_RestrictionType
                ) extends traitCOL_Restriction
 
 
