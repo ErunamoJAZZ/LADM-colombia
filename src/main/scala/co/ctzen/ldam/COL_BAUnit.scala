@@ -59,13 +59,14 @@ COL_Predio(
             obraAlInterior: COL_ObrasAlInteriorTipo,
             pendiente: COL_PendienteTipo,
             predioTipo: Option[COL_predioTipo],
-            ubicacionCopropiedad: COL_UbicacionEnCopropiedadTipo
+            ubicacionCopropiedad: Option[COL_UbicacionEnCopropiedadTipo]
           ) extends COL_BAUnit
 
 case class
 COL_Terreno(
              override val uID: Oid,
              override val nombre: Option[String],
+             area: LA_AreaValue,
              avaluoTerreno: Int,
              coberturaSuelo: COL_CoberturaSuelo,
              forma: COL_FormaTipo,

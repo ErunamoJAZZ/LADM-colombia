@@ -54,10 +54,10 @@ COL_Restriction(
                  override val fraccion: Option[Fraction],
                  override val shareCheck: Option[Boolean],
                  override val vigencia: Option[ISO8601_ISO14825_Type],
-                 partyRequired: Option[Boolean],
-                 RestriccionDominio: Boolean,
-                 RestriccionOcupacion: Boolean,
-                 RestriccionUso: Boolean,
+                 override val partyRequired: Option[Boolean],
+                 override val RestriccionDominio: Boolean,
+                 override val RestriccionOcupacion: Boolean,
+                 override val RestriccionUso: Boolean,
                  tipo: COL_RestrictionType
                ) extends traitCOL_Restriction
 
