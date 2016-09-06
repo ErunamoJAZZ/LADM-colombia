@@ -8,6 +8,7 @@ package co.ctzen.domain
 object types {
   type Oid = Long //???
   type ISO8601_ISO14825_Type= Long //???
+  type ISO19125_Type = Long // ??
   type Fraction = Fractional[Int] //???
 
   //Del SpatialUniDomain

@@ -23,6 +23,8 @@ trait COL_BAUnit {
   val administrativeSource: Seq[COL_AdministrativeSource] // Asociación con COL_AdministrativeSource TODO verifiar nombre
   val spatialSource: Seq[COL_SpatialSource] // Asociación con Spatial Source
   val spatialUnit: Seq[LA_SpatialUnit] // Asociación con LA_SpatialUnit
+  val relationBaunit1: Seq[LA_RequiredRelationshipBAUnit] // Asociación con LA_RequiredRelationshipBAUnit TODO verificar si este diseño es correcto
+  val relationBaunit2: Seq[LA_RequiredRelationshipBAUnit] // Asociación con LA_RequiredRelationshipBAUnit TODO verificar si este diseño es correcto
 }
 
 case class
@@ -35,6 +37,8 @@ COL_ZonaRestriccion(
                      override val administrativeSource: Seq[COL_AdministrativeSource],
                      override val spatialSource: Seq[COL_SpatialSource],
                      override val spatialUnit: Seq[LA_SpatialUnit],
+                     override val relationBaunit1: Seq[LA_RequiredRelationshipBAUnit],
+                     override val relationBaunit2: Seq[LA_RequiredRelationshipBAUnit],
                      tipoZonaRestriccion: COL_ZonaRestriccionTipo,
                      vigencia: Option[LocalDateTime]
                    ) extends COL_BAUnit
@@ -49,6 +53,8 @@ COL_ZonaResponsabilidad(
                          override val administrativeSource: Seq[COL_AdministrativeSource],
                          override val spatialSource: Seq[COL_SpatialSource],
                          override val spatialUnit: Seq[LA_SpatialUnit],
+                         override val relationBaunit1: Seq[LA_RequiredRelationshipBAUnit],
+                         override val relationBaunit2: Seq[LA_RequiredRelationshipBAUnit],
                          tipoZonaResponsabilidad: COL_ZonaResponsabilidadTipo,
                          vigencia: Option[LocalDateTime]
                        ) extends COL_BAUnit
@@ -63,6 +69,8 @@ COL_Predio(
             override val administrativeSource: Seq[COL_AdministrativeSource],
             override val spatialSource: Seq[COL_SpatialSource],
             override val spatialUnit: Seq[LA_SpatialUnit],
+            override val relationBaunit1: Seq[LA_RequiredRelationshipBAUnit],
+            override val relationBaunit2: Seq[LA_RequiredRelationshipBAUnit],
             acceso: COL_AccesoTipo,
             actividadEconomica: COL_ActividadEconoTipo,
             actividadEconomicaSub: COL_ActividadEconoSubTipo,
@@ -99,6 +107,8 @@ COL_Terreno(
              override val administrativeSource: Seq[COL_AdministrativeSource],
              override val spatialSource: Seq[COL_SpatialSource],
              override val spatialUnit: Seq[LA_SpatialUnit],
+             override val relationBaunit1: Seq[LA_RequiredRelationshipBAUnit],
+             override val relationBaunit2: Seq[LA_RequiredRelationshipBAUnit],
              area: LA_AreaValue,
              avaluoTerreno: Int,
              coberturaSuelo: COL_CoberturaSuelo,
@@ -117,6 +127,8 @@ COL_Construccion(
                   override val administrativeSource: Seq[COL_AdministrativeSource],
                   override val spatialSource: Seq[COL_SpatialSource],
                   override val spatialUnit: Seq[LA_SpatialUnit],
+                  override val relationBaunit1: Seq[LA_RequiredRelationshipBAUnit],
+                  override val relationBaunit2: Seq[LA_RequiredRelationshipBAUnit],
                   anioConstruccion: Option[LocalDateTime],
                   avaluoConstruccion: Int, //TODO, el tipo de dato está inventado.
                   numeroPisos: Int,
@@ -134,6 +146,8 @@ COL_UnidadConstruccion(
                         override val administrativeSource: Seq[COL_AdministrativeSource],
                         override val spatialSource: Seq[COL_SpatialSource],
                         override val spatialUnit: Seq[LA_SpatialUnit],
+                        override val relationBaunit1: Seq[LA_RequiredRelationshipBAUnit],
+                        override val relationBaunit2: Seq[LA_RequiredRelationshipBAUnit],
                         actividadEcono: COL_ActividadEconoTipo,
                         actividadEconoUnidad: COL_ActividadEconoSubTipo,
                         alturaEntrePlacas: COL_AlturaEntrePlacasTipo,

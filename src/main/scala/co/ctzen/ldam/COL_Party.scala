@@ -37,6 +37,7 @@ trait COL_Party {
   val administrativeSource: Seq[COL_AdministrativeSource] // Asociación con la tabla COL_AdministrativeSource TODO revisar nombre
   val conveyancerSource: Seq[COL_AdministrativeSource] // Asociación con la tabla COL_AdministrativeSource TODO revisar nombre
   val demanda: Seq[COL_Demanda] // Asociación con la tabla COL_Demanda TODO revisar cardinalidad
+  val group: Option[COL_PartyMember] // Asociación con la tabla COL_PartyMember TODO verificar si está diseñado correctamte
 }
 
 case class
@@ -63,6 +64,8 @@ COL_GroupParty(
                 override val administrativeSource: Seq[COL_AdministrativeSource] ,
                 override val conveyancerSource: Seq[COL_AdministrativeSource],
                 override val demanda: Seq[COL_Demanda],
+                override val group: Option[COL_PartyMember],
+                members: Seq[COL_PartyMember], // Asociaciòn con COL_PartyMember TODO verificar que mínimo existan dos
                 groupID: Oid,
                 nombre: String, //Todo, dice char??
                 `type`: COL_GroupPartyType
@@ -70,5 +73,7 @@ COL_GroupParty(
 
 case class
 COL_PartyMember(
-                share: Option[Fraction]
+                share: Option[Fraction],
+                party: COL_Party,
+                groupParty: COL_GroupParty
                )

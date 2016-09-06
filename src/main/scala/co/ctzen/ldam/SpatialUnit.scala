@@ -26,6 +26,9 @@ trait LA_SpatialUnit {
   val level: Option[COL_Level] // Asociación con COL_Level  0..1
   val unit: Seq[COL_BAUnit] // Asociación con COL_BAUnit 0..*
 
+  val relationSu1: Seq[LA_RequiredRelationshipSpatialUnit] // Asociación con LA_RequiredRelationshipSpatialUnit TODO verificar si este diseño es correcto
+  val relationSu2: Seq[LA_RequiredRelationshipSpatialUnit] // Asociación con LA_RequiredRelationshipSpatialUnit TODO verificar si este diseño es correcto
+
   def areaClosed: Boolean
   def computeArea: Area
   def computeVolume: Volume
