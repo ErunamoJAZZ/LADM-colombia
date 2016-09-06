@@ -6,7 +6,7 @@ import co.ctzen.domain.types._
 /**
   * Created by cdsanchez on 3/09/16.
   */
-trait SpatialUnit {
+trait LA_SpatialUnit {
   val area: Option[LA_AreaValue]
   val dimension: Option[LA_DimensionType]
   val exitAddressID: Seq[ExtAddress]
@@ -37,7 +37,7 @@ COL_LegalSpaceBuildingUnit(
                             override val volume: Seq[LA_VolumeValue],
                             extPhysicalBuildingUnitlD: Option[ExtPhysicalBuildingUnit],
                             `type`: Option[COL_BuildingUnitType]
-                          ) extends SpatialUnit
+                          ) extends LA_SpatialUnit
 
 
 abstract case class // Abstracta por el momento para evitar conflictos con las funciones no implementadas
@@ -53,4 +53,4 @@ COL_LegalSpaceUtilityNetwork(
                             extPhysicalNetworklD: Option[ExtPhysicalUtilityNetwork],
                             status: Option[LA_UtilityNetworkStatusType],
                             `type`: Option[COL_UtilityNetworkType]
-                          ) extends SpatialUnit
+                          ) extends LA_SpatialUnit

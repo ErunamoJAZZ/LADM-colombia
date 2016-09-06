@@ -38,7 +38,13 @@ COL_AdministrativeSource(
                          override val submission: Option[LocalDateTime],
                          override val tipoTransaccion: Option[COL_TransaccionRegistralTipo],
                          text: Option[MultiMediaType],
-                         tipo: COL_AdministrativeSourceType
+                         tipo: COL_AdministrativeSourceType,
+                         demanda: Seq[COL_Demanda], // Asociación con tabla COL_Demanda TODO revisar cardinalidad
+                         rrr: Seq[COL_RRR], // Asociación con tabla COL_RRR
+                         requiredRelationBaunit: Seq[LA_RequiredRelationshipBAUnit], // Asociación con la tabla LA_RequiredRelationshipBAUnit
+                         unit: Seq[COL_BAUnit], // Asociación con COL_BAUnit
+                         representedBy: Option[COL_Party], // Asociación con COL_Party 0.. 1 TODO revisar nombre
+                         conveyancer: Seq[COL_Party] // Asociación con COL_Party TODO revisar nombre y cardinalidad 1..*
                         ) extends COL_Source
 
 
