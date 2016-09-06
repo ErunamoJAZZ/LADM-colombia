@@ -64,5 +64,13 @@ COL_SpatialSource(
                     mediciones: Seq[OM_Observation], //  0.. *
                     procedimiento: Option[OM_Process],
                     quality: Option[DQ_Element],
-                    `type`: COL_SpatialSourceType
-                  ) extends COL_Source
+                    `type`: COL_SpatialSourceType,
+                    surveyor: Seq[COL_Party], // Asociación con COL_Party 1..* TODO obligatorio al menos uno
+                    polygon: Seq[COL_Polygon], // Asociación con COL_Polygon 0..*
+                    boundaryFaceString: Seq[LA_BoundaryFaceString], // Asociación con  LA_BoundaryFaceString
+                    point: Seq[COL_Point], // Asociación con COL_Point 1..* TODO obligatorio al menos uno
+                    boundaryFace: Seq[La_BoundaryFace], // Asociación con BoundaryFace 0..*
+                    spatialUnit: Seq[LA_SpatialUnit], // Asociación con LA_SpatialUnit 0...*
+                    requiredRelationshipSpatialUnit: Seq[LA_RequiredRelationshipSpatialUnit], // Asociación con LA_RequiredRelationshipSpatialUnit 0..*
+                    unit: Seq[COL_BAUnit] // Asociación con COL_BAUnit 0..*
+           ) extends COL_Source

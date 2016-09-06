@@ -15,7 +15,16 @@ trait LA_SpatialUnit {
   val suID: Oid
   val surfaceRelation: Option[LA_SurfaceRelationType]
   val volume: Seq[LA_VolumeValue]
-
+  val minusBoundaryFace: Seq[La_BoundaryFace] // Asociación con La_BoundaryFace 0..*
+  val plusBoundaryFace: Seq[La_BoundaryFace] // Asociaciòn con La_BoundaryFace 0..*
+  val minusBoundaryFaceString: Seq[LA_BoundaryFaceString] // Asociación con LA_BoundaryFaceString 0..*
+  val plusBoundaryFaceString: Seq[LA_BoundaryFaceString] // Asociaciòn con LA_BoundaryFaceString 0..*
+  val point: Option[COL_Point] // Asociación con COL_Point 0..1
+  val whole: Seq[LA_SpatialUnitGroup] // Asociación con LA_SpatialUnitGroup 0..*
+  val source: Seq[COL_SpatialSource] // Asociación con COL_SpatialSource 0..*
+  val polygon: Seq[COL_Polygon] // Asociación con COL_Polygon  0..*
+  val level: Option[COL_Level] // Asociación con COL_Level  0..1
+  val unit: Seq[COL_BAUnit] // Asociación con COL_BAUnit 0..*
 
   def areaClosed: Boolean
   def computeArea: Area
@@ -25,7 +34,8 @@ trait LA_SpatialUnit {
   def volumeClosed: Boolean
 }
 
-abstract case class // Abstracta por el momento para evitar conflictos con las funciones no implementadas
+// Abstracta por el momento para evitar conflictos con las funciones no implementadas
+abstract case class
 COL_LegalSpaceBuildingUnit(
                             override val area: Option[LA_AreaValue],
                             override val dimension: Option[LA_DimensionType],
@@ -40,7 +50,8 @@ COL_LegalSpaceBuildingUnit(
                           ) extends LA_SpatialUnit
 
 
-abstract case class // Abstracta por el momento para evitar conflictos con las funciones no implementadas
+// Abstracta por el momento para evitar conflictos con las funciones no implementadas
+abstract case class
 COL_LegalSpaceUtilityNetwork(
                             override val area: Option[LA_AreaValue],
                             override val dimension: Option[LA_DimensionType],
@@ -54,3 +65,21 @@ COL_LegalSpaceUtilityNetwork(
                             status: Option[LA_UtilityNetworkStatusType],
                             `type`: Option[COL_UtilityNetworkType]
                           ) extends LA_SpatialUnit
+
+case class
+COL_Level(
+            IID: Oid, //  TODO revisar el nombre (doble II)
+            name: Option[String],
+            registerType: Option[COL_RegisterType],
+            structure: Option[COL_StructureType],
+            `type`: Option[COL_LevelContentType]
+          )
+
+case class
+LA_SpatialUnitGroup(
+                      hierachyLevel: Int,
+                      label: Option[String],
+                      name: Option[String],
+                      referencePoint: Option[GM_Point],
+                      sugID: Oid
+                   )

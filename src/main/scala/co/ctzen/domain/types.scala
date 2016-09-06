@@ -22,6 +22,7 @@ object types {
   //Del SruveyingDomain
   type CC_OperationMethod = Int //???
   type GM_Point = Int //???
+  type GM_MultiCurve = Int //??
 
   type COL_InstitucionTipo = String //!!, este dominio no se definió
   type COL_BAUso = String
@@ -32,4 +33,5 @@ object types {
   type OM_Observation = String // ?
   type OM_Process = String // ?
   type DQ_Element = String // ??
+  type LI_Lineage = String // ?
 }
