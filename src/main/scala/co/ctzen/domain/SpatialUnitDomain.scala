@@ -119,5 +119,4 @@ object SpatialUnitDomain {
     ToDo
     = Value
   }
-
 }
