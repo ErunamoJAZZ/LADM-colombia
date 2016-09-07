@@ -26,8 +26,11 @@ trait LA_SpatialUnit {
   val level: Option[COL_Level] // Asociación con COL_Level  0..1
   val unit: Seq[COL_BAUnit] // Asociación con COL_BAUnit 0..*
 
-  val relationSu1: Seq[LA_RequiredRelationshipSpatialUnit] // Asociación con LA_RequiredRelationshipSpatialUnit TODO verificar si este diseño es correcto
+  val relationSu1: Seq[LA_RequiredRelationshipSpatialUnit] // Asociación con LA_RequiredRelationshipSpatialUnit  TODO verificar si este diseño es correcto
   val relationSu2: Seq[LA_RequiredRelationshipSpatialUnit] // Asociación con LA_RequiredRelationshipSpatialUnit TODO verificar si este diseño es correcto
+
+  val spatialUnit1: Seq[LA_SpatialUnit] // Agregación con su misma clase suHierarchy TODO verificar si es correcto
+  val spatailUnit2: Option[LA_SpatialUnit] // Asociación con su misma clase suHierarchy TODO verificar si es correcto
 
   def areaClosed: Boolean
   def computeArea: Area
@@ -84,5 +87,7 @@ LA_SpatialUnitGroup(
                       label: Option[String],
                       name: Option[String],
                       referencePoint: Option[GM_Point],
-                      sugID: Oid
+                      sugID: Oid,
+                      element: Seq[LA_SpatialUnitGroup], // Agregación con su misma clase suGroupHierarchy TODO verificar si es correcto
+                      set: Option[LA_SpatialUnitGroup] // Asociación con su misma clase suGroupHierarchy TODO verificar si es correcto
                    )
